@@ -1,0 +1,9 @@
+.wrapper {
+  text-align: center;
+}
+
+.action {
+  cursor: pointer;
+  margin: 50px;
+  width: 100px;
+}
