@@ -12,6 +12,8 @@ const scoreLine = document.getElementById('score');
 
 var score = 0;
 
+var computerScore = 0;
+
 const generateResults = function(action){
 
   computerWaiting.style.display = 'none';
@@ -76,7 +78,7 @@ const generateResults = function(action){
       score++;
       break;
     case 'You Lose!':
-      score--;
+      computerScore++;
       break;
     case 'Draw!':
       break;
@@ -94,10 +96,10 @@ const generateResults = function(action){
           resultLine.style.display = 'block';
           computerWaiting.innerHTML = 'Computer Chooses: ' + computerAction.toUpperCase();
           resultLine.innerHTML = result;
-          scoreLine.innerHTML = 'Score: ' + score; 
+          scoreLine.innerHTML ='Player: ' + score + ' | Computer: ' + computerScore; 
           if (score === 3) {
             resultLine.innerHTML = 'YOU WIN THE GAME!!!';
-          } else if (score === -3) {
+          }else if (computerScore === 3){
             resultLine.innerHTML = 'YOU LOSE THE GAME!!!';
           }
         }, 800);
@@ -106,17 +108,25 @@ const generateResults = function(action){
   }, 800);
 };
 
-const changeBackgroundColor = function(action) {
+const changeBackgroundColorBlue = function(action) {
   action.target.style.backgroundColor = '#00FFFF';
+};
+
+const changeBackgroundColorGreen = function(action) {
+  action.target.style.backgroundColor = '#00FF00';
+};
+
+const changeBackgroundColorRed = function(action) {
+  action.target.style.backgroundColor = '#FF0000';
 };
 
 const revertBackgroundColor = function(action) {
   action.target.style.backgroundColor = '';
 };
 
-rock.onmouseover = changeBackgroundColor;
-paper.onmouseover = changeBackgroundColor;
-scissors.onmouseover = changeBackgroundColor;
+rock.onmouseover = changeBackgroundColorBlue;
+paper.onmouseover = changeBackgroundColorGreen;
+scissors.onmouseover = changeBackgroundColorRed;
 
 rock.onmouseout = revertBackgroundColor;
 paper.onmouseout = revertBackgroundColor;
