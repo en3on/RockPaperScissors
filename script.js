@@ -99,8 +99,12 @@ const generateResults = function(action){
           scoreLine.innerHTML ='Player: ' + score + ' | Computer: ' + computerScore; 
           if (score === 3) {
             resultLine.innerHTML = 'YOU WIN THE GAME!!!';
+            score = 0;
+            computerScore = 0;
           }else if (computerScore === 3){
             resultLine.innerHTML = 'YOU LOSE THE GAME!!!';
+            score = 0;
+            computerScore = 0;
           }
         }, 800);
       }, 800);
@@ -116,8 +120,8 @@ const changeBackgroundColorGreen = function(action) {
   action.target.style.backgroundColor = '#00FF00';
 };
 
-const changeBackgroundColorRed = function(action) {
-  action.target.style.backgroundColor = '#FF0000';
+const changeBackgroundColorYellow = function(action) {
+  action.target.style.backgroundColor = '#FFFF00';
 };
 
 const revertBackgroundColor = function(action) {
@@ -126,7 +130,7 @@ const revertBackgroundColor = function(action) {
 
 rock.onmouseover = changeBackgroundColorBlue;
 paper.onmouseover = changeBackgroundColorGreen;
-scissors.onmouseover = changeBackgroundColorRed;
+scissors.onmouseover = changeBackgroundColorYellow;
 
 rock.onmouseout = revertBackgroundColor;
 paper.onmouseout = revertBackgroundColor;
